@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="/SmallSharp/assets/css/style.css?v=0ea64c058bc3c86e8a454f5a8ba68abb57875523">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>SmallSharp | Create, edit and run multiple C# top-level programs in the same project by just selecting the startup program from the start button.</title>
+<meta name="generator" content="Jekyll v3.9.5" />
+<meta property="og:title" content="SmallSharp" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Create, edit and run multiple C# top-level programs in the same project by just selecting the startup program from the start button." />
+<meta property="og:description" content="Create, edit and run multiple C# top-level programs in the same project by just selecting the startup program from the start button." />
+<meta property="og:site_name" content="SmallSharp" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="SmallSharp" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Create, edit and run multiple C# top-level programs in the same project by just selecting the startup program from the start button.","headline":"SmallSharp","name":"SmallSharp","url":"/SmallSharp/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/SmallSharp/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          
+            <a id="forkme_banner" href="https://github.com/devlooped/SmallSharp">View on GitHub</a>
+          
+
+          <h1 id="project_title">SmallSharp</h1>
+          <h2 id="project_tagline">Create, edit and run multiple C# top-level programs  in the same project by just selecting the startup program from the start  button.</h2>
+
+          
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1 id="-smallsharp"><img src="https://raw.githubusercontent.com/devlooped/SmallSharp/main/assets/img/icon-32.png" alt="Icon" /> SmallSharp</h1>
+
+<p><a href="https://www.nuget.org/packages/SmallSharp"><img src="https://img.shields.io/nuget/v/SmallSharp.svg?color=royalblue" alt="Version" /></a> 
+<a href="https://www.nuget.org/packages/SmallSharp"><img src="https://img.shields.io/nuget/dt/SmallSharp?color=darkmagenta" alt="Downloads" /></a> 
+<a href="https://github.com/devlooped/SmallSharp/blob/main/osmfeula.txt"><img src="https://img.shields.io/badge/EULA-OSMF-blue?labelColor=black&amp;color=C9FF30" alt="EULA" /></a>
+<a href="https://github.com/devlooped/SmallSharp/blob/main/license.txt"><img src="https://img.shields.io/github/license/devlooped/SmallSharp.svg?color=blue" alt="OSS" /></a></p>
+
+<!-- #description -->
+<p>Create, edit and run multiple C# file-based apps in the same project in the IDE, honoring per-file <code class="language-plaintext highlighter-rouge">#:package</code> 
+references, <code class="language-plaintext highlighter-rouge">#:property</code> project values and even <code class="language-plaintext highlighter-rouge">#:sdk</code> 😍
+<!-- #description --></p>
+
+<!-- include https://github.com/devlooped/.github/raw/main/osmf.md -->
+<h2 id="open-source-maintenance-fee">Open Source Maintenance Fee</h2>
+
+<p>To ensure the long-term sustainability of this project, users of this package who generate 
+revenue must pay an <a href="https://opensourcemaintenancefee.org">Open Source Maintenance Fee</a>. 
+While the source code is freely available under the terms of the <a href="/SmallSharp/license.txt">License</a>, 
+this package and other aspects of the project require <a href="/SmallSharp/osmfeula.txt">adherence to the Maintenance Fee</a>.</p>
+
+<p>To pay the Maintenance Fee, <a href="https://github.com/sponsors/devlooped">become a Sponsor</a> at the proper 
+OSMF tier. A single fee covers all of <a href="https://www.nuget.org/profiles/Devlooped">Devlooped packages</a>.</p>
+
+<!-- https://github.com/devlooped/.github/raw/main/osmf.md -->
+
+<!-- #content -->
+<h2 id="overview">Overview</h2>
+
+<p>C# <a href="https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/program-structure/top-level-statements">top-level programs</a> 
+allow a very intuitive, simple and streamlined experience for quickly spiking or learning C#. 
+The addition of <a href="https://devblogs.microsoft.com/dotnet/announcing-dotnet-run-app/">file-based apps</a> in 
+.NET 10 <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-directives#file-based-apps">takes this further</a> by allowing package references and even MSBuild properties to be 
+specified per file:</p>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span><span class="p">:</span><span class="n">package</span> <span class="n">Humanizer</span><span class="err">@</span><span class="m">2.14</span><span class="p">.</span><span class="m">1</span>
+<span class="err">#</span><span class="p">:</span><span class="n">property</span> <span class="n">ImplicitUsings</span><span class="p">=</span><span class="k">true</span>
+<span class="err">#</span><span class="p">:</span><span class="n">property</span> <span class="n">Nullable</span><span class="p">=</span><span class="n">enable</span>
+
+<span class="k">using</span> <span class="nn">Humanizer</span><span class="p">;</span>
+
+<span class="kt">var</span> <span class="n">dotNet9Released</span> <span class="p">=</span> <span class="n">DateTimeOffset</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="s">"2024-12-03"</span><span class="p">);</span>
+<span class="kt">var</span> <span class="n">since</span> <span class="p">=</span> <span class="n">DateTimeOffset</span><span class="p">.</span><span class="n">Now</span> <span class="p">-</span> <span class="n">dotNet9Released</span><span class="p">;</span>
+
+<span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"It has been </span><span class="p">{</span><span class="n">since</span><span class="p">.</span><span class="nf">Humanize</span><span class="p">()}</span><span class="s"> since .NET 9 was released."</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Editing these standalone files in VSCode, however, is suboptimal compared with the full C# 
+experience in Visual Studio. In Visual Studio, though, you can only have one top-level program 
+in a project, and as of now, you cannot leverage the <code class="language-plaintext highlighter-rouge">#:package</code> and <code class="language-plaintext highlighter-rouge">#:property</code> directives 
+at all.</p>
+
+<p><strong>SmallSharp</strong> allows dynamically selecting the file to run, right from the Start button/dropdown 
+(for compilation and launch/debug). It also automatically restores the <code class="language-plaintext highlighter-rouge">#:package</code> references so 
+the project system can resolve them, and even emits the <code class="language-plaintext highlighter-rouge">#:property</code> directives if present to customize 
+the build as needed.</p>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/SmallSharp/main/assets/img/launchSettings.png" alt="start button" /></p>
+
+<p>This list is automatically kept in sync as you add more <code class="language-plaintext highlighter-rouge">.cs</code> files to the project. When you select 
+one target C# file, that becomes the only top-level program to be compiled, so you don’t have to 
+modify any of the others since they automatically become <em>None</em> items.</p>
+
+<blockquote>
+  <p>[!TIP]
+An initial build after selection change migh be needed to restore the packages and compile the 
+selected file, unless you’re using the SDK mode for SmallSharp (see below).</p>
+</blockquote>
+
+<p>All compile files directly under the project directory root are considered top-level programs for 
+selection and compilation purposes. If you need to share code among them, you can place additional 
+files in subdirectories and those will behave like normal compile items.</p>
+
+<h2 id="usage">Usage</h2>
+
+<p>The recommended way to use SmallSharp is via the SDK mode, which provides the most streamlined
+and seamless experience across IDE and CLI builds:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Project</span> <span class="na">Sdk=</span><span class="s">"SmallSharp/2.2.3"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;PropertyGroup&gt;</span>
+    <span class="nt">&lt;OutputType&gt;</span>Exe<span class="nt">&lt;/OutputType&gt;</span>
+    <span class="c">&lt;!-- 👇 allows c# file to override the TF via a #:property --&gt;</span>
+    <span class="nt">&lt;TargetFramework</span> <span class="na">Condition=</span><span class="s">"$(TargetFramework) == ''"</span><span class="nt">&gt;</span>net10.0<span class="nt">&lt;/TargetFramework&gt;</span>
+  <span class="nt">&lt;/PropertyGroup&gt;</span>
+
+<span class="nt">&lt;/Project&gt;</span>
+</code></pre></div></div>
+
+<p>The SDK mode will always produce a successful build in a single <code class="language-plaintext highlighter-rouge">dotnet build</code> pass even if you 
+change the <code class="language-plaintext highlighter-rouge">ActiveFile</code> between builds.</p>
+
+<blockquote>
+  <p>[!IMPORTANT]
+If no <code class="language-plaintext highlighter-rouge">#:sdk</code> directive is provided by a specific C# file-based app, the <code class="language-plaintext highlighter-rouge">Microsoft.NET.SDK</code> will be 
+used by default in this SDK mode.</p>
+</blockquote>
+
+<p>If you prefer, you can also use SmallSharp as a regular package reference in a C# console project:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;Project</span> <span class="na">Sdk=</span><span class="s">"Microsoft.NET.Sdk"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;PropertyGroup&gt;</span>
+    <span class="nt">&lt;OutputType&gt;</span>Exe<span class="nt">&lt;/OutputType&gt;</span>
+    <span class="c">&lt;!-- 👇 allows c# file to override the TF via a #:property --&gt;</span>
+    <span class="nt">&lt;TargetFramework</span> <span class="na">Condition=</span><span class="s">"$(TargetFramework) == ''"</span><span class="nt">&gt;</span>net10.0<span class="nt">&lt;/TargetFramework&gt;</span>
+
+    <span class="c">&lt;!-- 👇 additional properties required in package mode --&gt;</span>
+    <span class="nt">&lt;ImportProjectExtensionProps&gt;</span>true<span class="nt">&lt;/ImportProjectExtensionProps&gt;</span>
+    <span class="nt">&lt;ImportProjectExtensionTargets&gt;</span>true<span class="nt">&lt;/ImportProjectExtensionTargets&gt;</span>   
+  <span class="nt">&lt;/PropertyGroup&gt;</span>
+
+  <span class="nt">&lt;ItemGroup&gt;</span>
+    <span class="nt">&lt;PackageReference</span> <span class="na">Include=</span><span class="s">"SmallSharp"</span> <span class="na">Version=</span><span class="s">"*"</span> <span class="na">PrivateAssets=</span><span class="s">"all"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;/ItemGroup&gt;</span>
+
+<span class="nt">&lt;/Project&gt;</span>
+</code></pre></div></div>
+
+<p>This package-reference mode works, but it has some caveats and limitations:</p>
+<ul>
+  <li>You cannot use the <code class="language-plaintext highlighter-rouge">#:sdk</code> <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/preprocessor-directives#file-based-apps">directive</a> 
+to specify a different SDK per file, since the project file already specifies one.</li>
+  <li>CLI-based builds may require multiple passes to restore and build the selected file, since 
+the package is only restored after the first build.</li>
+  <li>You must add ImportProjectExtensionProps/ImportProjectExtensionTargets manually, polluting the 
+project file.</li>
+</ul>
+
+<p>Keep adding as many top-level programs as you need, and switch between them easily by simply 
+selecting the desired file from the Start button dropdown.</p>
+
+<p>When running from the command-line, you can select the file to run by passing it as an argument to <code class="language-plaintext highlighter-rouge">dotnet run</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dotnet run <span class="nt">-p</span>:start<span class="o">=</span>program1.cs
+</code></pre></div></div>
+
+<p>You can also use the shortcut <code class="language-plaintext highlighter-rouge">-p:s=[FILE]</code>.</p>
+
+<h2 id="how-it-works">How It Works</h2>
+
+<p>This nuget package leverages in concert the following standalone and otherwise 
+unrelated features of the compiler, nuget and MSBuild:</p>
+
+<ol>
+  <li>The C# compiler only allows one top-level program per compilation.</li>
+  <li>Launch profiles (the entries in the Run dropdown) are populated from the Properties\launchSettings.json file</li>
+  <li>Whenever changed, the dropdown selection is persisted as the <code class="language-plaintext highlighter-rouge">$(ActiveDebugProfile)</code> MSBuild property in a file 
+named after the project with the <code class="language-plaintext highlighter-rouge">.user</code> extension</li>
+  <li>This file is imported before NuGet-provided MSBuild targets</li>
+  <li>VS ignores <code class="language-plaintext highlighter-rouge">#:</code> directives when adding the flag <code class="language-plaintext highlighter-rouge">FileBasedProgram</code> to the <code class="language-plaintext highlighter-rouge">$(Features)</code> project property.</li>
+</ol>
+
+<p>Using the above features in concert, <strong>SmallSharp</strong> essentially does the following:</p>
+
+<ul>
+  <li>
+    <p>Emit top-level files as a <code class="language-plaintext highlighter-rouge">launchSettings.json</code> profile and set the <code class="language-plaintext highlighter-rouge">$(ActiveDebugProfile)</code>.</p>
+  </li>
+  <li>
+    <p>Exclude <code class="language-plaintext highlighter-rouge">.cs</code> files at the project level from being included as <code class="language-plaintext highlighter-rouge">&lt;Compile&gt;</code> by the default SDK 
+includes and include them explicitly as <code class="language-plaintext highlighter-rouge">&lt;None&gt;</code> instead so they show up in the solution explorer. 
+This prevents the compiler from causing an error for multiple top-level programs.</p>
+  </li>
+  <li>
+    <p>Explicitly include as <code class="language-plaintext highlighter-rouge">&lt;Compile&gt;</code> only the <code class="language-plaintext highlighter-rouge">$(ActiveDebugProfile)</code> property value.</p>
+  </li>
+  <li>
+    <p>Emit <code class="language-plaintext highlighter-rouge">#:package</code> and <code class="language-plaintext highlighter-rouge">#:property</code> directive to an automatically imported <code class="language-plaintext highlighter-rouge">obj\SmallSharp.targets</code> file</p>
+  </li>
+  <li>
+    <p>SmallSharp MSBuild SDK automatically imports the <code class="language-plaintext highlighter-rouge">SmallSharp.targets</code> file, which causes a new 
+restore to automatically happen in Visual Studio, bringing all required dependencies automatically.</p>
+  </li>
+</ul>
+
+<p>This basically mean that this it will also work consistently if you use <code class="language-plaintext highlighter-rouge">dotnet run</code> from the command-line, 
+since the “Main” file selection is performed exclusively via MSBuild item manipulation.</p>
+
+<blockquote>
+  <p>[!TIP]
+It is recommended to keep the project file to its bare minimum, usually having just the SmallSharp 
+SDK reference, and do all project/package references in the top-level files using the <code class="language-plaintext highlighter-rouge">#:package</code> and 
+<code class="language-plaintext highlighter-rouge">#:property</code> directives for improved isolation between the different file-based apps.</p>
+</blockquote>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/SmallSharp/main/assets/img/runfile1.png" alt="run humanizer file" /></p>
+
+<p><img src="https://raw.githubusercontent.com/devlooped/SmallSharp/main/assets/img/runfile2.png" alt="run mcp file" />
+<!-- #content --></p>
+
+<!-- include https://github.com/devlooped/sponsors/raw/main/footer.md -->
+<h1 id="sponsors">Sponsors</h1>
+
+<!-- sponsors.md -->
+<p><a href="https://github.com/clarius"><img src="https://avatars.githubusercontent.com/u/71888636?v=4&amp;s=39" alt="Clarius Org" title="Clarius Org" /></a>
+<a href="https://github.com/MFB-Technologies-Inc"><img src="https://avatars.githubusercontent.com/u/87181630?v=4&amp;s=39" alt="MFB Technologies, Inc." title="MFB Technologies, Inc." /></a>
+<a href="https://github.com/sandrock"><img src="https://avatars.githubusercontent.com/u/321868?u=99e50a714276c43ae820632f1da88cb71632ec97&amp;v=4&amp;s=39" alt="SandRock" title="SandRock" /></a>
+<a href="https://github.com/drivenet"><img src="https://avatars.githubusercontent.com/u/15047123?v=4&amp;s=39" alt="DRIVE.NET, Inc." title="DRIVE.NET, Inc." /></a>
+<a href="https://github.com/Keflon"><img src="https://avatars.githubusercontent.com/u/16598898?u=64416b80caf7092a885f60bb31612270bffc9598&amp;v=4&amp;s=39" alt="Keith Pickford" title="Keith Pickford" /></a>
+<a href="https://github.com/tbolon"><img src="https://avatars.githubusercontent.com/u/127185?u=7f50babfc888675e37feb80851a4e9708f573386&amp;v=4&amp;s=39" alt="Thomas Bolon" title="Thomas Bolon" /></a>
+<a href="https://github.com/kfrancis"><img src="https://avatars.githubusercontent.com/u/67574?u=3991fb983e1c399edf39aebc00a9f9cd425703bd&amp;v=4&amp;s=39" alt="Kori Francis" title="Kori Francis" /></a>
+<a href="https://github.com/rbnswartz"><img src="https://avatars.githubusercontent.com/u/724704?u=2076fe336f9f6ad678009f1595cbea434b0c5a41&amp;v=4&amp;s=39" alt="Reuben Swartz" title="Reuben Swartz" /></a>
+<a href="https://github.com/jfoshee"><img src="https://avatars.githubusercontent.com/u/480334?v=4&amp;s=39" alt="Jacob Foshee" title="Jacob Foshee" /></a>
+<a href="https://github.com/eajhnsn1"><img src="https://avatars.githubusercontent.com/u/33566379?u=bf62e2b46435a267fa246a64537870fd2449410f&amp;v=4&amp;s=39" alt="" title="&quot;)](https://github.com/Mrxx99)
+[![Eric Johnson](https://avatars.githubusercontent.com/u/26369281?u=41b560c2bc493149b32d384b960e0948c78767ab&amp;v=4&amp;s=39 &quot;Eric Johnson" /></a>
+<a href="https://github.com/Jonathan-Hickey"><img src="https://avatars.githubusercontent.com/u/5510103?u=98dcfbef3f32de629d30f1f418a095bf09e14891&amp;v=4&amp;s=39" alt="Jonathan " title="Jonathan " /></a>
+<a href="https://github.com/KenBonny"><img src="https://avatars.githubusercontent.com/u/6417376?u=569af445b6f387917029ffb5129e9cf9f6f68421&amp;v=4&amp;s=39" alt="Ken Bonny" title="Ken Bonny" /></a>
+<a href="https://github.com/SimonCropp"><img src="https://avatars.githubusercontent.com/u/122666?v=4&amp;s=39" alt="Simon Cropp" title="Simon Cropp" /></a>
+<a href="https://github.com/agileworks-eu"><img src="https://avatars.githubusercontent.com/u/5989304?v=4&amp;s=39" alt="agileworks-eu" title="agileworks-eu" /></a>
+<a href="https://github.com/arsdragonfly"><img src="https://avatars.githubusercontent.com/u/4067473?v=4&amp;s=39" alt="Zheyu Shen" title="Zheyu Shen" /></a>
+<a href="https://github.com/vezel-dev"><img src="https://avatars.githubusercontent.com/u/87844133?v=4&amp;s=39" alt="Vezel" title="Vezel" /></a>
+<a href="https://github.com/ChilliCream"><img src="https://avatars.githubusercontent.com/u/16239022?v=4&amp;s=39" alt="ChilliCream" title="ChilliCream" /></a>
+<a href="https://github.com/4OTC"><img src="https://avatars.githubusercontent.com/u/68428092?v=4&amp;s=39" alt="4OTC" title="4OTC" /></a>
+<a href="https://github.com/DominicSchell"><img src="https://avatars.githubusercontent.com/u/66068846?u=0a5c5e2e7d90f15ea657bc660f175605935c5bea&amp;v=4&amp;s=39" alt="domischell" title="domischell" /></a>
+<a href="https://github.com/adalon"><img src="https://avatars.githubusercontent.com/u/2027083?u=129cf516d99f5cb2fd0f4a0787a069f3446b7522&amp;v=4&amp;s=39" alt="Adrian Alonso" title="Adrian Alonso" /></a>
+<a href="https://github.com/torutek"><img src="https://avatars.githubusercontent.com/u/33917059?v=4&amp;s=39" alt="torutek" title="torutek" /></a>
+<a href="https://github.com/mccaffers"><img src="https://avatars.githubusercontent.com/u/16667079?u=c0daa64bb5c1b572130e05ae2b6f609ecc912d4d&amp;v=4&amp;s=39" alt="Ryan McCaffery" title="Ryan McCaffery" /></a>
+<a href="https://github.com/SeikaLogiciel"><img src="https://avatars.githubusercontent.com/u/2564602?v=4&amp;s=39" alt="Seika Logiciel" title="Seika Logiciel" /></a>
+<a href="https://github.com/wizardness"><img src="https://avatars.githubusercontent.com/devlooped-user?s=39" alt="Andrew Grant" title="Andrew Grant" /></a>
+<a href="https://github.com/eska-gmbh"><img src="https://avatars.githubusercontent.com/devlooped-team?s=39" alt="eska-gmbh" title="eska-gmbh" /></a>
+<a href="https://github.com/geodata-no"><img src="https://avatars.githubusercontent.com/u/5946299?v=4&amp;s=39" alt="Geodata AS" title="Geodata AS" /></a></p>
+
+<!-- sponsors.md -->
+<p><a href="https://github.com/sponsors/devlooped"><img src="https://avatars.githubusercontent.com/devlooped-sponsor?s=118" alt="Sponsor this project" title="Sponsor this project" /></a></p>
+
+<p><a href="https://github.com/sponsors">Learn more about GitHub Sponsors</a></p>
+
+<!-- https://github.com/devlooped/sponsors/raw/main/footer.md -->
+
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        
+        <p class="copyright">SmallSharp maintained by <a href="https://github.com/devlooped">devlooped</a></p>
+        
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
